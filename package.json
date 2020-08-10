@@ -1,22 +1,50 @@
 {
   "name": "commander-gulp-images",
   "version": "1.0.0",
-  "description": "<p>This project is created to compile images</p>",
-  "main": "gulpfile.js",
+  "description": "This project is created to compile images",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^3.0.2",
+    "commander-gulp-server":"git+https://github.com/jugaz/commander-gulp-server.git",
+    "commander-gulp-styles": "git+https://github.com/jugaz/commander-gulp-styles.git",
+    "commander-gulp-templates": "git+https://github.com/jugaz/commander-gulp-templates.git",
+    "commander-gulp-watch":"git+https://github.com/jugaz/commander-gulp-watch.git",
+    "figlet": "^1.5.0",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-util": "^3.0.8",
+    "imagemin-webp": "^5.1.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^3.0.0"
+  },
+
   "bin": {
-    "commander-gulp-images": "images.js"
+    "commander-gulp-images": "bin/images.js"
+  },
+  "scripts": {
+    "deploy": "npm run templates && npm run styles && npm run images && npm run svg && gulp scripts",
+    "images": "node ./bin/images.js images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
+    "predeploy": "rm -rdf \"docs/\" && mkdir -p \"docs/\"",
+    "preinstall": "node bin/pre-cli-images.js",
+    "styles": "commander-gulp-styles scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --sc \"docs/styles\"",
+    "svg": "node ./bin/images.js svg \"frontend/src/static/images/**/*.svg\" --sv \"docs/images/\"",
+    "templates": "commander-gulp-templates templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --t \"docs/\"",
+    "watch": "npm run watch-templates watch-styles",
+    "watch-sass": "commander-gulp-watch.js w-scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --wscss \"docs/styles/\"",
+    "watch-stylus": "commander-gulp-watch.js w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl \"docs/styles/\"",
+    "watch-templates": "commander-gulp-watch.js w-templates \"frontend/src/templates/*.pug\"  \"frontend/src/templates/**/*.pug\" --wt \"docs/\""
   },
   "directories": {
     "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jugaz/commander-gulp-images.git"
   },
-  "author": "",
+  "author": "Jesùs Antonio Ugaz Vegas",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jugaz/commander-gulp-images/issues"
