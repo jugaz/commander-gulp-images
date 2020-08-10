@@ -1,0 +1,25 @@
+{
+  "name": "commander-gulp-images",
+  "version": "1.0.0",
+  "description": "<p>This project is created to compile images</p>",
+  "main": "gulpfile.js",
+  "bin": {
+    "commander-gulp-images": "images.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jugaz/commander-gulp-images.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jugaz/commander-gulp-images/issues"
+  },
+  "homepage": "https://github.com/jugaz/commander-gulp-images#readme"
+}
