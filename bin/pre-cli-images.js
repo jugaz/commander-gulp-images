@@ -2,4 +2,4 @@
 
 'use strict';
 
-require('../pre-install-images/pre-install-images.js');
+require('../../commander-gulp-images2/pre-install-images/pre-install-images.js');

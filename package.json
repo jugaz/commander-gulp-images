@@ -2,7 +2,13 @@
   "name": "commander-gulp-images",
   "version": "1.0.0",
   "description": "This project is created to compile images",
-  "main": "index.js",
+  "main": "./bin/images.js",
+  "author": "Jesús Antonio Ugaz Vegas",
+  "email":"jesusugazv@gmail.com",
+  "license": "ISC",
+  "bin": {
+    "commander-gulp-images": "bin/images.js"
+  },
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^3.0.2",
@@ -19,11 +25,7 @@
     "imagemin-webp": "^5.1.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^3.0.0"
-  },
-
-  "bin": {
-    "commander-gulp-images": "bin/images.js"
-  },
+  },  
   "scripts": {
     "deploy": "npm run templates && npm run styles && npm run images && npm run svg && gulp scripts",
     "images": "node ./bin/images.js images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
@@ -44,8 +46,6 @@
     "type": "git",
     "url": "git+https://github.com/jugaz/commander-gulp-images.git"
   },
-  "author": "Jesùs Antonio Ugaz Vegas",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jugaz/commander-gulp-images/issues"
   },
