@@ -1,11 +1,11 @@
 {
   "name": "commander-gulp-images",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This project is created to compile images",
   "main": "./bin/images.js",
   "author": "Jesús Antonio Ugaz Vegas",
   "email":"jesusugazv@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "commander-gulp-images": "bin/images.js"
   },
@@ -38,6 +38,13 @@
   "directories": {
     "doc": "docs"
   },
+  "keywords": [
+    "images",
+    "img",
+    "gulp",
+    "commander-gulp-images",
+    "commander"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jugaz/commander-gulp-images.git"
