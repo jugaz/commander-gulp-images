@@ -29,7 +29,7 @@ $ commander-gulp-images webp 'entry' --wb 'ouput'
 #### Example
 
 ```bash
-"scripts": {
+"scripts": { 
     "images": "commander-gulp-images images 'test/images/**/*.png' 'test/images/**/*.jpg' --im 'build/images'"
     "webp": "commander-gulp-images webp 'build/images/**/*.png' 'build/images/**/*.jpg' --wb 'build/images' "
   }
