@@ -30,7 +30,7 @@ $ commander-gulp-images webp 'entry' --wb 'ouput'
 
 ```bash
 "scripts": { 
-    "images": "commander-gulp-images images 'test/images/**/*.png' 'test/images/**/*.jpg' --im 'build/images'"
-    "webp": "commander-gulp-images webp 'build/images/**/*.png' 'build/images/**/*.jpg' --wb 'build/images' "
+    "images": "commander-gulp-images images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\'"
+    "webp": "commander-gulp-images webp \"docs/images/**/*.png\" \"docs/images/**/*.jpg\" --wb \"docs/images'"
   }
 ```
