@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-images",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This project is created to compile images",
   "main": "./bin/images.js",
   "author": "Jesús Antonio Ugaz Vegas",
