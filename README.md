@@ -1,6 +1,6 @@
 # Commander Gulp Images Dynamic
 
-<p>This project is created to compile images</p>
+<p>Compilación de imagenes dinámicamente</p>
  
 ![commander: version (tag)](https://img.shields.io/badge/commander-v3.0.2-blue?style=for-the-badge)
 ![gulp: version (tag)](https://img.shields.io/badge/gulp-v3.9.1-orange?style=for-the-badge)
@@ -26,11 +26,16 @@ $ commander-gulp-images images 'entry' --im 'ouput'
 $ commander-gulp-images webp 'entry' --wb 'ouput' 
 ```
 
+```bash
+$ commander-gulp-images svg 'entry' --sv 'ouput' 
+```
+
 #### Example
 
 ```bash
 "scripts": { 
-    "images": "commander-gulp-images images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\'"
-    "webp": "commander-gulp-images webp \"docs/images/**/*.png\" \"docs/images/**/*.jpg\" --wb \"docs/images'"
+    "images": "commander-gulp-images images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
+    "webp": "commander-gulp-images webp \"docs/images/**/*.png\" \"docs/images/**/*.jpg\" --wb \"docs/images\"",
+    "svg": "commander-gulp-images svg \"frontend/src/static/images/**/*.svg\" --sv \"docs/images/\"",
   }
 ```

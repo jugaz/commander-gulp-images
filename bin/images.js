@@ -5,14 +5,11 @@
 var
     debug = require('gulp-debug'),
     extReplace = require("gulp-ext-replace"),
-    gulp = gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     imageminWep = require('imagemin-webp'),
-    mkdirp = require('mkdirp'),
-    path = require('path'),
     program = require('commander'),
-    rimraf = require('rimraf'),
-    util = require('gulp-util');
+    util = require('gulp-util'),
+    { src, dest, series, parallel } = require("gulp");
 
 
 
@@ -26,32 +23,6 @@ program
     .version(
         'commander-gulp-images version: ' + require('../package.json').version + '\n'
     )
-    .option('-m, --mkdirp <path>', 'create folder', createFolder)
-    .option('-r, --rimraf <path>', 'delete folder', deleteFolder)
-
-
-/* ######################## CREATE FOLDERS ######################## */
-function createFolder(dir) {
-    mkdirp(dir, function (err) {
-        if (err) {
-            console.error(err)
-        } else {
-            console.log(dir)
-        }
-    })
-}
-
-
-/* ######################## DELETE FOLDERS ######################## */
-function deleteFolder(dir) {
-    rimraf(dir, function (err) {
-        if (err) {
-            console.error(err)
-        } else {
-            console.log(dir)
-        }
-    })
-}
 
 /* ######################## COMMANDER IMAGES ######################## */
 /*  node ./bin/images.js images 'test/images/*.png' 'test/images/*.jpg' --im 'build/images'*/
@@ -73,7 +44,7 @@ program
         });
 
 
-        return gulp.src(input)
+        return src(input, { allowEmpty: true })
             .pipe(debug({
                 title: 'commader-gulp-images:'
             }))
@@ -92,7 +63,7 @@ program
 
 
             })
-            .pipe(gulp.dest(ouput))
+            .pipe(dest(ouput))
             .on('end', function () {
                 util.log('Done!');
             });
@@ -115,7 +86,7 @@ program
         });
 
 
-        return gulp.src(input)
+        return src(input, { allowEmpty: true })
             .pipe(debug({
                 title: 'commader-gulp-images:'
             }))
@@ -130,7 +101,7 @@ program
 
 
             })
-            .pipe(gulp.dest(ouput))
+            .pipe(dest(ouput))
             .on('end', function () {
                 util.log('Done!');
             });
@@ -156,7 +127,7 @@ program
         });
 
 
-        return gulp.src(input)
+        return src(input, { allowEmpty: true })
             .pipe(debug({
                 title: 'commader-gulp-images:'
             }))
@@ -173,7 +144,7 @@ program
 
             })
             .pipe(extReplace(".webp"))
-            .pipe(gulp.dest(ouput))
+            .pipe(dest(ouput))
             .on('end', function () {
                 util.log('Done!');
             });
