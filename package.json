@@ -1,10 +1,10 @@
 {
   "name": "commander-gulp-images",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Compilación de imagenes dinámicamente",
   "main": "./bin/images.js",
   "author": "Jesús Antonio Ugaz Vegas",
-  "email":"jesusugazv@gmail.com",
+  "email": "jesusugazv@gmail.com",
   "license": "MIT",
   "bin": {
     "commander-gulp-images": "bin/images.js"
@@ -19,22 +19,14 @@
     "gulp-ext-replace": "^0.3.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-util": "^3.0.8",
-    "imagemin-webp": "^5.1.0",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^3.0.0"
-  },  
+    "imagemin-webp": "^5.1.0"
+  },
   "scripts": {
-    "deploy": "npm run templates && npm run styles && npm run images && npm run svg && gulp scripts",
+    "prod:images": "node ./bin/images.js prod:images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
     "images": "node ./bin/images.js images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
-    "predeploy": "rm -rdf \"docs/\" && mkdir -p \"docs/\"",
     "preinstall": "node bin/pre-cli-images.js",
     "styles": "commander-gulp-styles scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --sc \"docs/styles\"",
     "svg": "node ./bin/images.js svg \"frontend/src/static/images/**/*.svg\" --sv \"docs/images/\"",
-    "templates": "commander-gulp-templates templates \"frontend/src/templates/*.pug\" \"frontend/src/templates/**/*.pug\" --t \"docs/\"",
-    "watch": "npm run watch-templates watch-styles",
-    "watch-sass": "commander-gulp-watch.js w-scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --wscss \"docs/styles/\"",
-    "watch-stylus": "commander-gulp-watch.js w-stylus \"frontend/src/static/styles/*.styl\" \"frontend/src/static/styles/**/*.styl\" --wstyl \"docs/styles/\"",
-    "watch-templates": "commander-gulp-watch.js w-templates \"frontend/src/templates/*.pug\"  \"frontend/src/templates/**/*.pug\" --wt \"docs/\""
   },
   "directories": {
     "doc": "docs"

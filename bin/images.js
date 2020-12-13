@@ -49,8 +49,55 @@ program
                 title: 'commader-gulp-images:'
             }))
             .pipe(imagemin({
+                progressive: false,
+                verbose: false,
+                optimizationLevel:false
+            }))
+            .on('error', function (error) {
+                // tenemos un error 
+                util.log("Error Name:", error.name);
+                util.log("Error Code:", error.code);
+                util.log("Error Filename:", error.filename);
+                util.log("Error Line:", error.line);
+                util.log("Error Column:", error.column);
+                util.log("Error Msg", error.Msg);
+
+
+            })
+            .pipe(dest(ouput))
+            .on('end', function () {
+                util.log('Done!');
+            });
+
+    })
+
+
+program
+    .command('prod:images <input>')
+    .option("--im [options]")
+    .action((input, options) => {
+        var input = options.input || options.parent.rawArgs;
+        var ouput = options.ouput || options.im;
+        input = input.filter(function (index, value) {
+            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "png") {
+                return index;
+            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpg") {
+                return index;
+            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpeg") {
+                return index;
+            }
+
+        });
+
+
+        return src(input, { allowEmpty: true })
+            .pipe(debug({
+                title: 'commader-gulp-images production:'
+            }))
+            .pipe(imagemin({
                 progressive: true,
-                verbose: true
+                verbose: true,
+                optimizationLevel:true
             }))
             .on('error', function (error) {
                 // tenemos un error 
