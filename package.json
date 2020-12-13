@@ -26,7 +26,7 @@
     "images": "node ./bin/images.js images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
     "preinstall": "node bin/pre-cli-images.js",
     "styles": "commander-gulp-styles scss \"frontend/src/static/styles/*.scss\" \"frontend/src/static/styles/**/*.scss\" --sc \"docs/styles\"",
-    "svg": "node ./bin/images.js svg \"frontend/src/static/images/**/*.svg\" --sv \"docs/images/\"",
+    "svg": "node ./bin/images.js svg \"frontend/src/static/images/**/*.svg\" --sv \"docs/images/\""
   },
   "directories": {
     "doc": "docs"
