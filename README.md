@@ -22,15 +22,15 @@ $ commander-gulp-images images 'entry' --im 'ouput'
 ```
 
 ```bash
-$ commander-gulp-images prod:images 'entry' --im 'ouput' 
-```
-
-```bash
 $ commander-gulp-images webp 'entry' --wb 'ouput' 
 ```
 
 ```bash
 $ commander-gulp-images svg 'entry' --sv 'ouput' 
+```
+
+```bash
+$ commander-gulp-images prod:images 'entry' --im 'ouput' 
 ```
 
 #### Example
