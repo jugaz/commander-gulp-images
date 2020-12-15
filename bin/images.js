@@ -107,8 +107,6 @@ program
                 util.log("Error Line:", error.line);
                 util.log("Error Column:", error.column);
                 util.log("Error Msg", error.Msg);
-
-
             })
             .pipe(dest(ouput))
             .on('end', function () {
@@ -129,9 +127,7 @@ program
             if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "svg") {
                 return index;
             }
-
         });
-
 
         return src(input, { allowEmpty: true })
             .pipe(debug({
@@ -145,8 +141,6 @@ program
                 util.log("Error Line:", error.line);
                 util.log("Error Column:", error.column);
                 util.log("Error Msg", error.Msg);
-
-
             })
             .pipe(dest(ouput))
             .on('end', function () {
@@ -170,7 +164,6 @@ program
             } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpeg") {
                 return index;
             }
-
         });
 
 
@@ -187,15 +180,12 @@ program
                 util.log("Error Line:", error.line);
                 util.log("Error Column:", error.column);
                 util.log("Error Msg", error.Msg);
-
-
             })
             .pipe(extReplace(".webp"))
             .pipe(dest(ouput))
             .on('end', function () {
                 util.log('Done!');
             });
-
     })
 
 program.parse(process.argv);
