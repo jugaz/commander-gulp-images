@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-images",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "Compilación de imagenes dinámicamente",
   "main": "./bin/images.js",
   "author": "Jesús Antonio Ugaz Vegas",
@@ -19,7 +19,8 @@
     "gulp-ext-replace": "^0.3.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-util": "^3.0.8",
-    "imagemin-webp": "^5.1.0"
+    "imagemin-webp": "^5.1.0",
+    "path": "^0.12.7"
   },
   "scripts": {
     "preinstall": "node bin/pre-cli-images.js"

@@ -8,6 +8,7 @@ var
     imagemin = require('gulp-imagemin'),
     imageminWep = require('imagemin-webp'),
     program = require('commander'),
+    path = require('path'),
     util = require('gulp-util'),
     { src, dest, series, parallel } = require("gulp");
 
@@ -33,11 +34,11 @@ program
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.im;
         input = input.filter(function (index, value) {
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "png") {
+            if (path.extname(index) == ".png") {
                 return index;
-            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpg") {
+            } else if (path.extname(index) == ".jpg") {
                 return index;
-            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpeg") {
+            } else if (path.extname(index) == ".jpeg") {
                 return index;
             }
 
@@ -79,11 +80,11 @@ program
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.im;
         input = input.filter(function (index, value) {
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "png") {
+            if (path.extname(index) == ".png") {
                 return index;
-            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpg") {
+            } else if (path.extname(index) == ".jpg") {
                 return index;
-            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpeg") {
+            } else if (path.extname(index) == ".jpeg") {
                 return index;
             }
 
@@ -124,7 +125,7 @@ program
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.sv;
         input = input.filter(function (index, value) {
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "svg") {
+            if (path.extname(index) == "svg") {
                 return index;
             }
         });
@@ -157,11 +158,11 @@ program
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wb;
         input = input.filter(function (index, value) {
-            if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "png") {
+            if (path.extname(index) == "png") {
                 return index;
-            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpg") {
+            } else if (path.extname(index) == "jpg") {
                 return index;
-            } else if (index.slice((index.lastIndexOf(".") - 1 >>> 0) + 2) == "jpeg") {
+            } else if (path.extname(index) == "jpeg") {
                 return index;
             }
         });
