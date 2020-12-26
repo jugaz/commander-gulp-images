@@ -1,5 +1,5 @@
 # Commander Gulp Images Dynamic
-
+<style>.markdown-body pre code {cursor:auto}</style>
 <p>Compilación de imagenes dinámicamente</p>
  
 ![commander: version (tag)](https://img.shields.io/badge/commander-v3.0.2-blue?style=for-the-badge)
@@ -33,8 +33,10 @@ $ commander-gulp-images prod:images'entry' --im 'ouput'
 
 ```bash
 "scripts": { 
-    "images": "commander-gulp-images images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\"",
-    "webp": "commander-gulp-images webp \"docs/images/**/*.png\" \"docs/images/**/*.jpg\" --wb \"docs/images\"",
-    "prod:images": "commander-gulp-images prod:images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images\""
+    "images": "commander-gulp-images images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images/\"",
+    "webp": "commander-gulp-images webp \"docs/images/**/*.png\" \"docs/images/**/*.jpg\" --wb \"docs/images/\"",
+    "prod:images": "commander-gulp-images prod:images \"frontend/src/static/images/**/*.png\" \"frontend/src/static/images/**/*.jpg\" --im \"docs/images/\""
   }
 ```
+### Link
+https://jugaz.github.io/commander-gulp-images/

@@ -33,13 +33,15 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.im;
+        function error(){
+            util.log("El o los archivos no son 'imagenes'")
+            util.log("El o los archivos correctos es: '.png,.jpg o .jpeg'")
+        }
         input = input.filter(function (index, value) {
-            if (path.extname(index) == ".png") {
+            if (path.extname(index) == ".png" || path.extname(index) == ".jpg" || path.extname(index) == ".jpeg") {
                 return index;
-            } else if (path.extname(index) == ".jpg") {
-                return index;
-            } else if (path.extname(index) == ".jpeg") {
-                return index;
+            } else if (path.extname(index) != ".png" || path.extname(index) != ".jpg" || path.extname(index) != ".jpeg") {
+                return error()
             }
 
         });
@@ -79,18 +81,20 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.im;
+        var input = options.input || options.parent.rawArgs;
+        var ouput = options.ouput || options.im;
+        function error(){
+            util.log("ERROR: No es extisión válida")
+            util.log("ERROR: La extisión válida debe ser: '.png.,jpg o jpeg'")
+        }
         input = input.filter(function (index, value) {
-            if (path.extname(index) == ".png") {
+            if (path.extname(index) == ".png" || path.extname(index) == ".jpg" || path.extname(index) == ".jpeg") {
                 return index;
-            } else if (path.extname(index) == ".jpg") {
-                return index;
-            } else if (path.extname(index) == ".jpeg") {
-                return index;
+            } else if (path.extname(index) != ".png" || path.extname(index) != ".jpg" || path.extname(index) != ".jpeg") {
+                return error()
             }
 
         });
-
-
         return src(input, { allowEmpty: true })
             .pipe(debug({
                 title: 'commader-gulp-images production:'
@@ -116,38 +120,7 @@ program
 
     })
 
-/* ######################## COMMANDER SVG ######################## */
-/*  node ./bin/images.js svg 'frontend/static/images/*.svg' 'frontend/static/images//*.svg' --sv 'build/images'*/
-program
-    .command('svg <input>')
-    .option("--sv [options]")
-    .action((input, options) => {
-        var input = options.input || options.parent.rawArgs;
-        var ouput = options.ouput || options.sv;
-        input = input.filter(function (index, value) {
-            if (path.extname(index) == "svg") {
-                return index;
-            }
-        });
 
-        return src(input, { allowEmpty: true })
-            .pipe(debug({
-                title: 'commader-gulp-images:'
-            }))
-            .on('error', function (error) {
-                // tenemos un error 
-                util.log("Error Name:", error.name);
-                util.log("Error Code:", error.code);
-                util.log("Error Filename:", error.filename);
-                util.log("Error Line:", error.line);
-                util.log("Error Column:", error.column);
-                util.log("Error Msg", error.Msg);
-            })
-            .pipe(dest(ouput))
-            .on('end', function () {
-                util.log('Done!');
-            });
-    })
 
 /* ######################## COMMANDER WEB ######################## */
 /*  node ./bin/images.js webp 'build/images/*.png' 'build/images/*.jpg' --wb 'build/images'*/
@@ -157,16 +130,17 @@ program
     .action((input, options) => {
         var input = options.input || options.parent.rawArgs;
         var ouput = options.ouput || options.wb;
+        function error(){
+            util.log("ERROR: No es extisión válida")
+            util.log("ERROR: La extisión válida debe ser: '.png.,jpg o jpeg'")
+        }
         input = input.filter(function (index, value) {
-            if (path.extname(index) == "png") {
+            if (path.extname(index) == ".png" || path.extname(index) == ".jpg" || path.extname(index) == ".jpeg") {
                 return index;
-            } else if (path.extname(index) == "jpg") {
-                return index;
-            } else if (path.extname(index) == "jpeg") {
-                return index;
-            }
+            } else if (path.extname(index) != ".png" || path.extname(index) != ".jpg" || path.extname(index) != ".jpeg") {
+                return error()
+           }
         });
-
 
         return src(input, { allowEmpty: true })
             .pipe(debug({
