@@ -1,6 +1,6 @@
 {
   "name": "commander-gulp-images",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Compilación de imagenes dinámicamente",
   "main": "./bin/images.js",
   "author": "Jesús Antonio Ugaz Vegas",
