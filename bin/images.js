@@ -90,7 +90,7 @@ program
 
         });
         if(input.length === 0 || input === "undefine") {
-            return util.log("Error: No existe los archivos con los siguientes formatos: '.png, .jpg o .jpeg'")
+            return util.log("ERROR: No existe los archivos con los siguientes formatos: '.png, .jpg o .jpeg'")
         }
         else {
             return src(input, { allowEmpty: true })
