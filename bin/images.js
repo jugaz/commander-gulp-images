@@ -38,37 +38,36 @@ program
             if (path.extname(index) == ".png" || path.extname(index) == ".jpg" || path.extname(index) == ".jpeg") {
                 return index;
             }
-
         });
-        if(input.length === 0 || input === "undefine" ||  path.extname(index) !== ".png" 
-        || path.extname(index) !== ".jpg" || path.extname(index) !== ".jpeg") {
+
+        if(input.length === 0 || input === "undefine") {
             return util.log("Error: No existe los archivos con los siguientes formatos: '.png, .jpg o .jpeg'")
         }
         else {
             return src(input, { allowEmpty: true })
-            .pipe(debug({
-                title: 'commader-gulp-images:'
-            }))
-            .pipe(imagemin({
-                progressive: false,
-                verbose: false,
-                optimizationLevel:false
-            }))
-            .on('error', function (error) {
-                // tenemos un error 
-                util.log("Error Name:", error.name);
-                util.log("Error Code:", error.code);
-                util.log("Error Filename:", error.filename);
-                util.log("Error Line:", error.line);
-                util.log("Error Column:", error.column);
-                util.log("Error Msg", error.Msg);
+                .pipe(debug({
+                    title: 'commader-gulp-images:'
+                }))
+                .pipe(imagemin({
+                    progressive: false,
+                    verbose: false,
+                    optimizationLevel:false
+                }))
+                .on('error', function (error) {
+                    // tenemos un error 
+                    util.log("Error Name:", error.name);
+                    util.log("Error Code:", error.code);
+                    util.log("Error Filename:", error.filename);
+                    util.log("Error Line:", error.line);
+                    util.log("Error Column:", error.column);
+                    util.log("Error Msg", error.Msg);
 
 
-            })
-            .pipe(dest(ouput))
-            .on('end', function () {
-                util.log('Done!');
-            });
+                })
+                .pipe(dest(ouput))
+                .on('end', function () {
+                    util.log('Done!');
+                });
 
         }
         
@@ -90,8 +89,7 @@ program
             } 
 
         });
-        if(input.length === 0 || input === "undefine" ||  path.extname(index) !== ".png" 
-        || path.extname(index) !== ".jpg" || path.extname(index) !== ".jpeg") {
+        if(input.length === 0 || input === "undefine") {
             return util.log("Error: No existe los archivos con los siguientes formatos: '.png, .jpg o .jpeg'")
         }
         else {
