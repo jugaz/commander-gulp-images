@@ -136,9 +136,8 @@ program
                 return index;
             }
         });
-        if(input.length === 0 || input === "undefine" ||  path.extname(index) !== ".png" 
-        || path.extname(index) !== ".jpg" || path.extname(index) !== ".jpeg") {
-            return util.log("Error: No existe los archivos con los siguientes formatos: '.png, .jpg o .jpeg'")
+        if(input.length === 0 || input === "undefine") {
+            return util.log("ERROR: No existe los archivos con los siguientes formatos: '.png, .jpg o .jpeg'")
         }
         else {
             return src(input, { allowEmpty: true })
